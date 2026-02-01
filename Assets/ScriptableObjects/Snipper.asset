@@ -19,3 +19,4 @@ MonoBehaviour:
   IsAutomatic: 0
   CanZoom: 1
   ZoomAmount: 30
+  MagazineSize: 8

@@ -1,16 +1,13 @@
 using UnityEngine;
 
-public class AmmoWeapon : MonoBehaviour
+public class AmmoPickup : Pickup
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void OnPickup(ActiveWeapon activeWeapon)
     {
-        
+        WeaponSO weaponSO = activeWeapon.WeaponSO;
+        if (weaponSO == null) return;
+        activeWeapon.AdjustAmmo(weaponSO.MagazineSize);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

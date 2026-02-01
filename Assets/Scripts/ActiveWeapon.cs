@@ -13,11 +13,14 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField] private GameObject zoomInImage;
 
     public TextMeshProUGUI ammoText;
+    public WeaponSO WeaponSO => currentWeaponSO;
 
     StarterAssetsInputs starterAssetsInputs;
     Weapon currentWeapon;
     float defaultFOV;
     int currentAmmo;
+
+
 
     [SerializeField] private float timeToNextShot = 0f;
 
