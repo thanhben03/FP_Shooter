@@ -118,7 +118,7 @@ Transform:
   m_Children:
   - {fileID: 4866565768291529628}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 186.74858, z: 0}
 --- !u!136 &6070416009629973213
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -151,6 +151,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4866565768291529628}
+  - component: {fileID: 4260363428506696640}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -173,4 +174,16 @@ Transform:
   m_Children:
   - {fileID: 2513487445104815888}
   m_Father: {fileID: 8260545201722456679}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 357.52332, z: 0}
+--- !u!114 &4260363428506696640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7469421146099838760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de9794ce2a83884c93530c0c58c3e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
