@@ -1,3 +1,4 @@
+using Cinemachine;
 using StarterAssets;
 using UnityEngine;
 
@@ -7,11 +8,14 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField] WeaponSO weaponSO;
     [SerializeField] Animator animator;
     [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] private CinemachineVirtualCamera playerFollowCamera;
+    [SerializeField] private GameObject zoomInImage;
     StarterAssetsInputs starterAssetsInputs;
 
     Weapon currentWeapon;
+    float defaultFOV;
 
-    private float timeToNextShot = 0f;
+    [SerializeField] private float timeToNextShot = 0f;
 
     private void Awake()
     {
@@ -21,12 +25,14 @@ public class ActiveWeapon : MonoBehaviour
 
     private void Start()
     {
+        defaultFOV = playerFollowCamera.m_Lens.FieldOfView;
         currentWeapon = GetComponentInChildren<Weapon>();
     }
 
     private void Update()
     {
         HandleShoot();
+        HandleZoom();
     }
 
     public void SwitchWeapon(WeaponSO weaponSO)
@@ -49,8 +55,8 @@ public class ActiveWeapon : MonoBehaviour
             return;
 
         }
-        timeToNextShot = 0f;
         if (!starterAssetsInputs.shoot) return;
+        timeToNextShot = 0f;
 
         currentWeapon.Shoot(weaponSO);
         animator.Play("Shoot", 0, 0f);
@@ -60,6 +66,25 @@ public class ActiveWeapon : MonoBehaviour
         {
 
             starterAssetsInputs.ShootInput(false);
+        }
+    }
+
+    void HandleZoom()
+    {
+        if (!weaponSO.CanZoom)
+        {
+            return;
+        }
+
+        if (starterAssetsInputs.zoom)
+        {
+            zoomInImage.SetActive(true);
+            playerFollowCamera.m_Lens.FieldOfView = Mathf.Lerp(playerFollowCamera.m_Lens.FieldOfView, defaultFOV - weaponSO.ZoomAmount, Time.deltaTime * 10f);
+        }
+        else
+        {
+            zoomInImage.SetActive(false);
+            playerFollowCamera.m_Lens.FieldOfView = Mathf.Lerp(playerFollowCamera.m_Lens.FieldOfView, defaultFOV, Time.deltaTime * 10f);
         }
     }
 }
