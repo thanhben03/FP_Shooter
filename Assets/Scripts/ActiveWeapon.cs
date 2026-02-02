@@ -11,6 +11,7 @@ public class ActiveWeapon : MonoBehaviour
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] private CinemachineVirtualCamera playerFollowCamera;
     [SerializeField] private GameObject zoomInImage;
+    [SerializeField] Camera weaponCamera;
 
     public TextMeshProUGUI ammoText;
     public WeaponSO WeaponSO => currentWeaponSO;
@@ -99,11 +100,14 @@ public class ActiveWeapon : MonoBehaviour
         {
             zoomInImage.SetActive(true);
             playerFollowCamera.m_Lens.FieldOfView = Mathf.Lerp(playerFollowCamera.m_Lens.FieldOfView, defaultFOV - currentWeaponSO.ZoomAmount, Time.deltaTime * 10f);
+            weaponCamera.fieldOfView = currentWeaponSO.ZoomAmount - 10f;
         }
         else
         {
             zoomInImage.SetActive(false);
             playerFollowCamera.m_Lens.FieldOfView = Mathf.Lerp(playerFollowCamera.m_Lens.FieldOfView, defaultFOV, Time.deltaTime * 10f);
+            weaponCamera.fieldOfView = defaultFOV;
+
         }
     }
 }
