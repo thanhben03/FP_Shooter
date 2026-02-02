@@ -1,4 +1,5 @@
 using Cinemachine;
+using StarterAssets;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -8,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] Transform weaponCamera;
     [SerializeField] Transform shieldBarContainer;
     [SerializeField] Transform shielBarTemplate;
+    public GameObject gameOverUI;
 
     int currentHealth;
 
@@ -30,6 +32,9 @@ public class PlayerHealth : MonoBehaviour
         {
             weaponCamera.parent = null;
             deathVirtualCamera.Priority = 20;
+            gameOverUI.SetActive(true);
+            StarterAssetsInputs starterAssetsInputs = FindAnyObjectByType<StarterAssetsInputs>();
+            starterAssetsInputs.SetCursorState(false);
             Destroy(gameObject);
         }
     }

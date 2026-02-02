@@ -35,8 +35,14 @@ public class Turret : MonoBehaviour
             GameObject projectileObj = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
             Projectile projectile = projectileObj.GetComponent<Projectile>();
             projectile.Init(damage);
-            projectile.transform.LookAt(playerHealth.transform.position);
+            if (playerHealth)
+            {
+                projectile.transform.LookAt(playerHealth.transform.position);
+                
+            }
         }
+
+        yield return null;
     }
 
 }
