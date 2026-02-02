@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        Debug.Log("Player take damage: " + amount);
         currentHealth -= amount;
         UpdateUIHealth();
         if (currentHealth < 0)
