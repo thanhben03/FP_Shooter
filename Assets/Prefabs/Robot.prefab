@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921e443d4b685c94a8755571e72e649b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionVFX: {fileID: 4904298197976594099, guid: 3850675e258b1034a8d5126687923c3e, type: 3}
   startingHealth: 3
 --- !u!195 &2960950947979610549
 NavMeshAgent:
@@ -81,7 +82,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1.5
-  m_BaseOffset: 0.15
+  m_BaseOffset: 1.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!95 &3946886651250325908
@@ -128,7 +129,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.91, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9052004632813183910
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ee6b4e96d25e3e4f9f31ed5e2666cdb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.987
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ee6b4e96d25e3e4f9f31ed5e2666cdb, type: 3}
       propertyPath: m_LocalPosition.z

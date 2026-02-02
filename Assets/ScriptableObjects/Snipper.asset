@@ -18,5 +18,5 @@ MonoBehaviour:
   hitVFX: {fileID: 3798148841397312372, guid: 2f8fbc35fce601c4c8a411ee0f8830c4, type: 3}
   IsAutomatic: 0
   CanZoom: 1
-  ZoomAmount: 30
+  ZoomAmount: 20
   MagazineSize: 8
