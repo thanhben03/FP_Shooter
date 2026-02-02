@@ -25,7 +25,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        Debug.Log("Player take damage: " + amount);
+
         currentHealth -= amount;
         UpdateUIHealth();
         if (currentHealth < 0)
@@ -33,8 +33,7 @@ public class PlayerHealth : MonoBehaviour
             weaponCamera.parent = null;
             deathVirtualCamera.Priority = 20;
             gameOverUI.SetActive(true);
-            StarterAssetsInputs starterAssetsInputs = FindAnyObjectByType<StarterAssetsInputs>();
-            starterAssetsInputs.SetCursorState(false);
+            GameManager.Instance.SetCursorState(false);
             Destroy(gameObject);
         }
     }

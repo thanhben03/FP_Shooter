@@ -10,7 +10,15 @@ public class EnemyHealth : MonoBehaviour
     private void Awake()
     {
         currentHealth = startingHealth;
+
     }
+
+    private void Start()
+    {
+        GameManager.Instance.AdjustEnemyLeftUI(gameObject, 1);
+
+    }
+
 
     public void TakeDamage(int amount)
     {
@@ -23,6 +31,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void SelfDestruct()
     {
+        GameManager.Instance.AdjustEnemyLeftUI(gameObject, -1);
         Instantiate(explosionVFX, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

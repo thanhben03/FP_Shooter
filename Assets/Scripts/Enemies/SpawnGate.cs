@@ -5,7 +5,7 @@ public class SpawnGate : MonoBehaviour
 {
 
     [SerializeField] GameObject robotPrefab;
-    [SerializeField] float spawnTime = 5f;
+    [SerializeField] float spawnTime = 3f;
     [SerializeField] Transform spawnPoint;
 
     PlayerHealth playerHealth;
@@ -19,9 +19,10 @@ public class SpawnGate : MonoBehaviour
     {
         while (playerHealth)
         {
+            Debug.Log("Spawn Gate");
             Instantiate(robotPrefab, spawnPoint);
-
             yield return new WaitForSeconds(spawnTime);
+
         }
 
         yield return null;
