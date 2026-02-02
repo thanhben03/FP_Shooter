@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Pickup : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
